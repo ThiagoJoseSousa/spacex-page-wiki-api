@@ -33,6 +33,7 @@ body {
     display: flex;
     list-style: none;
     justify-content: space-around;
+    position: absolute;
     width: 100%;
 }
 
@@ -73,8 +74,22 @@ body {
     transition-duration: 0.4s;
 }
 /* sections */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+        position: relative;
+        z-index: -1;
+    }
+    100%{
+        opacity: 100%;
+        position: relative;
+        z-index: -1;
+    }
+}
+
 #section-A {
-    background-image: url('img/section\ a.jpg');
+    background-image: url('https://sxcontent9668.azureedge.us/cms-assets/assets/HOMEPAGE_desktop_45dcb299b9.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -305,6 +320,7 @@ body {
 
 .space {
     width: 200px;
+    height: 10px;
 }
 /* section B*/
 #section-B {
@@ -346,6 +362,8 @@ body {
 }
 
 section {
+    animation-name: fadeIn;
+    animation-duration: 1s;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -385,8 +403,4 @@ li#copyright {
     .space {
         display: none;
     }
-}
-
-@media (max-width:600px) {
-
 }
