@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+/* header */
+.header {
+    align-items: center;
+    display: flex;
+    font: 16px;
+    font-family: 'Sofia Sans', sans-serif;
+    height: 100px;
+    line-height: 1.4;
+    position: fixed;
+    width: 100vw;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header__ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.header__link {
+    display: inline-block;
+    position: relative;
+    margin-right: 12px;
+}
+
+.header__logo {
+    cursor: pointer;
+    height: auto;
+    margin-left: 25px;
+    width: 210px;
+}
+
+.header__link a {
+    color: white;
+    text-decoration: none;
+}
+/* Menu item bottom animation */
+.header__link a::after {
+    background-color: white;
+    bottom: 0;
+    content: "";
+    left: 0;
+    height: 1px;
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.19,1,0.22,1);
+    transform-origin: right center;
+    width: 100%;
+}
+
+.header__link a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition-duration: 0.4s;
+}
+/* sections */
+#section-A {
+    background-image: url('img/section\ a.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.titles--wrapper {
+    --ele-bottom: 15%;
+    bottom: var(--ele-bottom);
+    left: 50px;
+    position: absolute;
+}
+
+.titles {
+    font-family: 'Sofia Sans', sans-serif;
+    animation-name: titlesLift;
+    animation-duration: 1.5s;
+}
+
+.titles__title {
+    font-weight: 700;
+    font-size: 48px;
+    margin-top: 10px;
+}
+
+.titles__subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.titles__button {
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0);
+    border-style: solid;
+    border-color: white;
+    color: white;
+    display: flex;
+    font-weight: 700;
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 25px;
+    position: relative;
+    width: 150px;
+    z-index: 2;
+}
+/* button animation */
+.titles__button::after {
+    background-color: white;
+    content: "";
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.6s;
+    position: absolute;
+    width: 100%;
+}
+
+.titles__button:hover::after {
+    transform: scaleY(1);
+    transform-origin: bottom;
+}
+
+.titles__text {
+    transition: color .5s;
+    position: absolute;
+    z-index: 3;
+}
+
+.titles__button:hover {
+    color: black;
+    cursor: pointer;
+}
+
+@keyframes titlesLift {
+    0% {
+        transform: translateY(180%);
+        opacity: 0%;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 100%;
+    }
+}
+
+.titles__subtitle::selection {
+    background-color: white;
+    color: black
+}
+
+.titles__title::selection {
+    background-color: white;
+    color: black
+}
+
+.scroll-svg {
+    bottom: 5%;
+    fill: white;
+    left: 49%;
+    position: absolute;
+    animation-name: point-down;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* hamburger menu */
+#burger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 50px;
+    justify-content: center;
+    margin-right: 25px;
+    margin-top: 25px;
+    position: absolute;
+    right: 0px;
+    width: 50px;
+    z-index: 1;
+}
+
+#burger-menu__line {
+    background-color: white;
+    display: block;
+    height: 4px;
+    transition: all 0.6s;
+}
+
+#burger-menu::after {
+    content: "";
+    background-color: white;
+    display: block;
+    height: 4px;
+    transition: all 0.6s;
+}
+
+#burger-menu::before {
+    content: "";
+    background-color: white;
+    display: block;
+    height: 4px;
+    transition: all 0.6s;
+}
+
+#burger-menu.clicked span {
+    transform: scale(0)
+}
+
+#burger-menu.clicked::before {
+    transform: rotate(45deg);
+}
+
+#burger-menu.clicked::after {
+    position: relative;
+    top: -18px;
+    transform: rotate(-45deg);
+}
+/* opened burger */
+#burger {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+#burger__wrapper {
+    background-color: black;
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    right: 0;
+    transition-duration: 1s;
+    transition-property: transform;
+}
+
+#burger__ul {
+    color: white;
+    list-style-type: none;
+    margin: auto;
+    width: 70%;
+    margin-top: 90px;
+}
+
+.menu__li {
+    margin-top: 30px;
+    text-align: end;
+}
+
+.menu__li::after {
+    content: "";
+    display: block;
+    background-color: white;
+    height: 1px;
+    opacity: 50%;
+}
+
+@keyframes point-down {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+#burger--hidden {
+    width: fit-content;
+    height: 80px;
+    position: fixed;
+    right: 0;
+}
+
+#burger__wrapper--hidden {
+    background-color: black;
+    height: 100vh;
+    width: 300px;
+    position: fixed;
+    right: 0;
+    transform: translateX(300px);
+    transition-duration: 1s;
+    transition-property: transform;
+}
+
+.space {
+    width: 200px;
+}
+/* section B*/
+#section-B {
+    background-image: url("https://sxcontent9668.azureedge.us/cms-assets/assets/DESKTOP_HOMEPAGE_091c26421c.jpg");
+}
+
+#section-B .titles--wrapper {
+    --ele-bottom: -85%
+}
+
+#section-B .titles {
+    animation-name: titlesLift;
+    animation-duration: 1.5s;
+}
+
+#section-B .scroll-svg {
+    bottom: -95%;
+}
+/* section C*/
+#section-C .titles--wrapper {
+    --ele-bottom: -185%
+}
+
+#section-C {
+    background-image: url("https://sxcontent9668.azureedge.us/cms-assets/assets/Homepage_Desktop_5ebdeb0c6c.webp");
+}
+
+#section-C .scroll-svg {
+    bottom: -195%;
+}
+/* section D*/
+#section-D .titles--wrapper {
+    --ele-bottom: -285%
+}
+
+#section-D {
+    background-image: url("https://sxcontent9668.azureedge.us/cms-assets/assets/S20_Chopstick_Stack_Desktop_0c016b49ec.webp");
+    height: 100vh;
+}
+
+section {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    max-width: 100vw;
+}
+
+#footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 35px;
+    justify-content: center;
+    list-style-type: none;
+    padding: 40px 0;
+}
+
+#footer ul {
+    width: 100vw;
+}
+
+#footer li {
+    font-size: 11px;
+}
+
+li#copyright {
+    color: grey;
+    font-size: 9px;
+    margin-right: 15px;
+}
+/* Media Queries */
+
+@media (max-width:960px) {
+    .header__link {
+        display:none;
+    }
+    .space {
+        display: none;
+    }
+}
+
+@media (max-width:600px) {
+
+}
