@@ -104,7 +104,7 @@ body {
 .titles {
     font-family: 'Sofia Sans', sans-serif;
     animation-name: titlesLift;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
 }
 
 .titles__title {
@@ -171,6 +171,10 @@ body {
         opacity: 0%;
     }
 
+    50% {
+        transform: translateY(180%);
+        opacity: 0%;
+    }
     100% {
         transform: translateY(0%);
         opacity: 100%;
@@ -331,11 +335,6 @@ body {
     --ele-bottom: -85%
 }
 
-#section-B .titles {
-    animation-name: titlesLift;
-    animation-duration: 1.5s;
-}
-
 #section-B .scroll-svg {
     bottom: -95%;
 }
@@ -403,4 +402,10 @@ li#copyright {
     .space {
         display: none;
     }
+}
+
+.menu__li a {
+    cursor:pointer;
+    text-decoration: none;
+    color: white;
 }
