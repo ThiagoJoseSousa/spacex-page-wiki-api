@@ -15,5 +15,15 @@ burger.addEventListener('click', ()=>{
     }
 })
 
-/* watch button */
+/* header show/disappear */
 
+let lastScrollTop=0;
+window.addEventListener("scroll",function (){
+    let scrollTop= window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop> lastScrollTop){
+        navigationBar.style.top="-100px";
+    } else {
+        navigationBar.style.top="0";
+    }
+    lastScrollTop=scrollTop;
+})

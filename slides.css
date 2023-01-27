@@ -1,0 +1,210 @@
+.titles__text{ 
+    pointer-events: none;
+}
+
+.slides{
+    background-color:black;
+    width: 100%;
+    height: 100%;
+}
+
+#section-B .slides{
+    top:150%;
+}
+
+#section-C .slides{
+    top:250%;
+}
+
+#section-D .slides{
+    top:350%;
+}
+
+.content {
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    overflow: hidden;
+    width: 100%;
+}
+
+.navigation {
+    bottom: 20px;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%);
+    display: flex;
+}
+
+.bar {
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 17px;
+    margin: 6px;
+    width: 70px;
+    transition: .3s;
+}
+
+.bar:hover {
+    background-color: white;
+}
+
+.slides input{
+    display: none;
+}
+
+.slides {
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.slide {
+    transition: 1s;
+    width: 20%;
+    border-style: solid;
+    border-width: 9px;
+    border-color: white;
+}
+
+.slide span{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* selectors:https://techbrij.com/css-selector-adjacent-child-sibling */
+
+#GPSIII-1 ~ .s1{
+    margin-top: 100%;
+}
+
+#GPSIII-1:checked ~ .s1 {
+    margin-left: 0px;
+    margin-top:0px;
+}
+
+#GPSIII-2:checked ~ .s2 {
+    margin-left: -20%;
+}
+
+#GPSIII-3:checked ~ .s3 {
+    margin-left: -40%;
+}
+
+#GPSIII-4:checked ~ .s4 {
+    margin-left: -60%;
+}
+
+#GPSIII-5:checked ~ .s5 {
+    margin-left: -80%;
+}
+
+
+
+.slide__text {
+    height: 70%;
+    transform: translateX(13%);
+    width: 80%;
+    overflow-y: scroll;
+    text-align: justify;
+}
+
+span h3{
+    font-size: 2rem;
+    margin: 2%;
+    text-align: center;
+}
+
+.slide__text{
+    padding: 15px;
+}
+
+.slide__text p {
+    padding: 5px;
+}
+.box.hidden{
+    display:none;
+}
+.content.hidden {
+    display:none;
+}
+.header.hidden{
+    display: none;
+}
+.titles.hidden :not(button){
+    display: none;
+}
+
+button.close {
+    background-image: url('img/close\ mark.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    transform: scaleX(40%) translateX(90%);
+}
+
+.close::after{
+    content: none;
+}
+/* close btn should be responsive*/
+
+/* BEM/refactor: https://www.freecodecamp.org/news/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849/ */
+
+.disabled {
+    background-color: grey;
+    pointer-events: none;
+}
+
+/* opening content animation */ 
+
+.box {
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    width: 80%;
+    transform: translate(-50%,-50%);
+}
+
+.content {
+    transform: scaleX(0); 
+    transform-origin: left;
+    animation:reveal 1s ease-in-out forwards;
+
+}
+
+.content .slides{
+    position: absolute;
+    top:0;
+    left:0;
+
+}
+
+.content::before{
+    content: ''; /* i miss it a lot of times*/
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    background: white;
+    z-index: 1;
+    animation: reveal 0.5s reverse forwards;
+    animation-delay: 1s;
+    transform-origin:right;
+}
+
+@keyframes reveal {
+ 0%{
+    transform: scaleX(0) ;
+ }
+ 100% {
+    transform:scaleX(1);
+ }
+}

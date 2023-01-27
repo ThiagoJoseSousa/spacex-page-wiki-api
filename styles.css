@@ -20,6 +20,8 @@ body {
     line-height: 1.4;
     position: fixed;
     width: 100vw;
+    transition-property: top;
+    transition-duration: 0.5s;
 }
 
 .header__nav {
@@ -409,3 +411,4 @@ li#copyright {
     text-decoration: none;
     color: white;
 }
+/*slides :https://www.youtube.com/watch?v=zxqGOgsgUtk&ab_channel=Al%C3%A9mDoC%C3%B3digo */

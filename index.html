@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="slides.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="page.js" defer></script>
+    <script src="wiki-slides.js" defer></script>
     <title>SpaceX</title>
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="navigationBar">
         <nav class="header__nav">
             <ul class="header__ul">
                 <img src="img/logo.png" alt="" class="header__logo">
@@ -79,19 +82,68 @@
             <div class="titles--wrapper">
 
                 <div class="titles">
-                    UPCOMING LAUNCH
+                    <p>UPCOMING LAUNCH</p>
                     <h2 class="titles__subtitle">
                     </h2>
                     <h1 class="titles__title">
                         GPS III SPACE VEHICLE <br/> 06 MISSION
                     </h1>
-                    <button class="titles__button">
+                    <button class="titles__button" data-section="0">
                         <span class="titles__text">
                             WATCH
                         </span>
                     </button>
                 </div>
             </div>
+            <div class="box hidden">
+
+                <div class="section__info content hidden">
+                    <div class="info__slides slides"> <!-- his class box= -->
+                        <input type="radio" name="GPSIII" id="GPSIII-1" checked> <!-- refactor so each click gets an API - gps III not good naming-->
+                        <input type="radio" name="GPSIII" id="GPSIII-2">
+                        <input type="radio" name="GPSIII" id="GPSIII-3">
+                        <input type="radio" name="GPSIII" id="GPSIII-4">
+                        <input type="radio" name="GPSIII" id="GPSIII-5">
+                        
+                        <span class="slides__slide1 slide s1">
+                            <h3>GPS</h3> 
+                            <div class="slide__text s1 text">
+                            </div>
+                        </span>
+                    <span class="slides__slide2 slide s2">
+                        <h3>GPSIII</h3>
+                        <div class="slide__text s1 text">
+                        </div>
+                    </span>
+                    <span class="slides__slide3 slide s3">
+                        <h3>Developer:Lockheed Martin</h3>
+                        <div class="slide__text s1 text">
+
+                        </div>
+                    </span>
+                    <span class="slides__slide4 slide s4">
+                        <h3>Most launched at</h3>
+                        <div class="slide__text s1 text">
+                            
+                        </div>
+                    </span>
+                    <span class="slides__slide5 slide s5">
+                        <h3>Cape Canaveral Space Force Station</h3>
+                        <div class="slide__text s1 text">
+                            
+                        </div>
+                    </span>
+                </div>
+                <div class="slides__navigation navigation">
+                    <label class="bar" for="GPSIII-1" data-title="Global_Positioning_System" data-slideNum="0"></label>
+                    <label class="bar" for="GPSIII-2" data-title="GPS_Block_III" data-slideNum="1"></label>
+                    <label class="bar" for="GPSIII-3" data-title="Lockheed_Martin" data-slideNum="2"></label>
+                    <label class="bar" for="GPSIII-4" data-title="Cape_Canaveral_Space_Launch_Complex_40" data-slideNum="3"></label>
+                    <label class="bar" for="GPSIII-5" data-title="Cape_Canaveral_Space_Force_Station" data-slideNum="4"></label>
+                </div>
+                
+            </div>
+        </div>
         </section>
         <section id="section-B">
             <svg class="scroll-svg" id="" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>
@@ -110,6 +162,7 @@
                     </button>
                 </div>
             </div>
+            <div class="sliders"></div>
         </section>
         <section id="section-C">
             <svg class="scroll-svg" id="" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>
@@ -125,6 +178,7 @@
                 </button>
             </div>
             </div>
+            <div class="sliders"></div>
         </section>
         <section id="section-D">
             <div class="titles--wrapper">
@@ -137,6 +191,10 @@
                         LEARN MORE
                     </span>
                 </button>
+            </div>
+        </div>
+            <div class="sliders">
+                
             </div>
         </section>
     </main>
